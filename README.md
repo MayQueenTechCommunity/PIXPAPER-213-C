@@ -2,8 +2,8 @@
 <br>
 
  ### MayQueen introduces PIXPAPER-213
-A 2.13 inch prototype Electronic Paper Display (EPD) module, Coop Triangle Alien Studio.
-It is based on an SPI interface and is fully compatible with our NXP edge fanless AIoT computing solutions.
+A 2.13 inch prototype Electronic Paper Display (EPD) module, in collaboration with Triangle Alien Studio for the first time, showcasing craftsmanship and excellent hardware quality.<br>
+It is based on an SPI interface and is fully compatible with our NXP edge fanless AIoT computing solutions.<br>
 We will gradually port it to more embedded platforms, so this page will be updated periodically!
 
 
