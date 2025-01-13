@@ -1,3 +1,5 @@
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://github.com/diogocavilha/fancy-git/blob/master/LICENSE)
+
 ## Overview
 
 ## Hardware Preparison
@@ -33,4 +35,104 @@ JP3 (EXT_GPIO8=DC#, EXT_GPIO6=RST#, EXT_GPIO4=BUSY)
 
 ## Driver Installation instructions
 
+|Kernel|Tested|
+|---|---|
+| 6.6 |&#10004;|
+| 5.15 |&#10004;|
+
+Step 1. Download the kernel source and modify the target device tree file: imx8mp-b643-ppc.dts <br>
+Step 2. Merge the patch as follows modification, q quick way is download these code as a patch, then use git apply into the kernel source.<br>
+
+```diff
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts b/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts
+index 0079ffc2501b..dd6fb8cdb8ba 100755
+--- a/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts
+@@ -198,13 +198,13 @@ lte_reset {
+        };
+ };
+
+-&ecspi2 {
++&ecspi1 {
+        #address-cells = <1>;
+        #size-cells = <0>;
+-       fsl,spi-num-chipselects = <1>;
++       num-cs = <1>;
+        pinctrl-names = "default";
+-       pinctrl-0 = <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
+-       cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
++       pinctrl-0 = <&pinctrl_ecspi1 &pinctrl_ecspi1_cs>;
++       cs-gpios = <&gpio5 9 GPIO_ACTIVE_LOW>;
+        status = "okay";
+
+        spidev1: spi@0 {
+@@ -616,15 +616,6 @@ &uart2 {
+        status = "okay";
+ };
+
+-&uart3 {
+-       pinctrl-names = "default";
+-       pinctrl-0 = <&pinctrl_uart3>;
+-       assigned-clocks = <&clk IMX8MP_CLK_UART3>;
+-       assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_80M>;
+-       fsl,uart-has-rtscts;
+-       status = "okay";
+-};
+-
+ &usb3_phy0 {
+        status = "okay";
+ };
+@@ -950,12 +941,17 @@ MX8MP_IOMUXC_UART2_TXD__UART2_DCE_TX      0x49
+                >;
+        };
+
+-       pinctrl_uart3: uart3grp {
++       pinctrl_ecspi1: ecspi1grp {
+                fsl,pins = <
+-                       MX8MP_IOMUXC_ECSPI1_SCLK__UART3_DCE_RX          0x140
+-                       MX8MP_IOMUXC_ECSPI1_MOSI__UART3_DCE_TX          0x140
+-                       MX8MP_IOMUXC_ECSPI1_SS0__UART3_DCE_RTS          0x140
+-                       MX8MP_IOMUXC_ECSPI1_MISO__UART3_DCE_CTS         0x140
++                       MX8MP_IOMUXC_ECSPI1_SCLK__ECSPI1_SCLK           0x140
++                       MX8MP_IOMUXC_ECSPI1_MOSI__ECSPI1_MOSI           0x140
++                       MX8MP_IOMUXC_ECSPI1_MISO__ECSPI1_MISO           0x140
++               >;
++       };
++
++       pinctrl_ecspi1_cs: ecspi1cs {
++               fsl,pins = <
++                       MX8MP_IOMUXC_ECSPI1_SS0__GPIO5_IO09                     0x140
+                >;
+        };
+```
+
+Step 3. Recompile the kernel and copy the new dtb file to the boot partition instead of the old one. <br>
+Step 4. Boot up the system and checking the device node is exist or not <br>
+
+    ls /dev/spidev1.0
+    
+
 ## User-Space Utility instructions
+
+
+## Contributors
+
+Thanks goes to these wonderful people from open source community ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/wigcheng"><img src="https://avatars.githubusercontent.com/u/7148592?v=4" width="100px;" alt="Wig Cheng"/><br /><sub><b>Wig Cheng</b></sub></a><br />💻</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+---
