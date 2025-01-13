@@ -112,12 +112,35 @@ Step 4. Boot up the system and checking the device node is exist or not <br>
     ls /dev/spidev1.0
     
 
-## User-Space Utility instructions
+## User-Space Utility instructions (Linux OS)
+
+Step 1. Install necessary packages
+
+        Ubuntu/Debian:
+        $ sudo apt install gpiod libgpiod-dev
+
+        Yocto:
+        Need add the line in machine conf file as following:
+        IMAGE_INSTALL_append = " libgpiod"
+
+
+
+Step 2. Please download the utility source code in the rootfs of PANZER-PLUS, then compile it and execute the compiled executable file.
+
+        PIXPAPER-213-C:
+        # wget https://raw.githubusercontent.com/wigcheng/open-epd/refs/heads/master/2.13/color/spi/jd79661-epd-image-imx8mp.c
+        # gcc -o jd79661_test_flash jd79661-epd-image-imx8mp.c -lgpiod
+        # ./jd79661_test_flash 
+
+        PIXPAPER-213-M:
+        Coming soon
+
+
 
 
 ## Contributors
 
-Thanks goes to these wonderful people from open source community ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+Thanks goes to these wonderful people from open source community:
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
@@ -125,7 +148,7 @@ Thanks goes to these wonderful people from open source community ([emoji key](ht
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://github.com/wigcheng"><img src="https://avatars.githubusercontent.com/u/7148592?v=4" width="100px;" alt="Wig Cheng"/><br /><sub><b>Wig Cheng</b></sub></a><br />💻</td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/wigcheng"><img src="https://avatars.githubusercontent.com/u/7148592?v=4" width="100px;" alt="Wig Cheng"/><br /><sub><b>Wig Cheng</b></sub></a><br /><a href="https://github.com/wigcheng/open-epd/commits?author=wigcheng" title="Code">💻</a></td>
     </tr>
   </tbody>
 </table>
