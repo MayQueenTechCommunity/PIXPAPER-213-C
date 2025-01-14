@@ -157,7 +157,7 @@ Step 3. If I need change a new image for PIXPAPER-213 series, how to update the 
         Then, rename your PNG file as test.png, and excute the python script
         $ python3 png2epd.py
 
-        It will generate a output ifle: test012_HEX.txt, the copy the content and paste to img_hex array of jd79661-epd-image-imx8mp.c instead of old array data.
+        It will generate a output file: test012_HEX.txt, the copy the content and paste to img_hex array of jd79661-epd-image-imx8mp.c instead of old array data.
 
 
 
