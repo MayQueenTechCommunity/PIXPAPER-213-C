@@ -1,4 +1,4 @@
-[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://github.com/diogocavilha/fancy-git/blob/master/LICENSE)
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
 ## Overview
 
@@ -132,9 +132,32 @@ Step 2. Please download the utility source code in the rootfs of PANZER-PLUS, th
         # gcc -o jd79661_test_flash jd79661-epd-image-imx8mp.c -lgpiod
         # ./jd79661_test_flash 
 
+        Note that if your wired connection is different with chapter 1 "Hardware Preparison", especially DC# PIN, RST# PIN, and BUSY PIN,
+        please modify the specific macros definition of jd79661_test_flash jd79661-epd-image-imx8mp.c:
+
+        #define EPD_GPIO_CHIP "gpiochip5"
+        #define EPD_DC_PIN 15
+        #define EPD_RST_PIN 13
+        #define EPD_BUSY_PIN 11
+
         PIXPAPER-213-M:
         Coming soon
 
+
+Expection results:
+
+
+        
+Step 3. If I need change a new image for PIXPAPER-213 series, how to update the image raw data.
+
+        Download the PNG to RAW converter base on python3, remember to install opencv package first
+        $ sudo apt install python3-opencv
+        $ wget https://raw.githubusercontent.com/wigcheng/open-epd/refs/heads/master/2.13/color/spi/png2epd.py
+
+        Then, rename your PNG file as test.png, and excute the python script
+        $ python3 png2epd.py
+
+        It will generate a output ifle: test012_HEX.txt, the copy the content and paste to img_hex array of jd79661-epd-image-imx8mp.c instead of old array data.
 
 
 
