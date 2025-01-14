@@ -34,6 +34,7 @@ We will gradually port it to more embedded platforms, so this page will be updat
 
 #### MCU Supported Platforms
 
-| **Platform** | <a href="https://www.renesas.com/" target="_blank"><br> <img src="https://camo.githubusercontent.com/fc8b5f8e2e02a0e81be9f9ae53bdf674c2a730f55345c6df533ed0e319804095/68747470733a2f2f7777772e72617370626572727970692e636f6d2f6170702f75706c6f6164732f323032322f30322f434f4c4f55522d5261737062657272792d50692d53796d626f6c2d526567697374657265642e706e67" width="" height="120" /></a> | Status |
-| ---- | ---- | ---- |
-| **Porting Guide** | Raspberry PI Pico | &#10004; |
+| **Platform** | <a href="https://www.raspberrypi.com/" target="_blank"><br> <img src="https://camo.githubusercontent.com/fc8b5f8e2e02a0e81be9f9ae53bdf674c2a730f55345c6df533ed0e319804095/68747470733a2f2f7777772e72617370626572727970692e636f6d2f6170702f75706c6f6164732f323032322f30322f434f4c4f55522d5261737062657272792d50692d53796d626f6c2d526567697374657265642e706e67" width="" height="120" /></a> | Status | <a href="https://www.arduino.cc/" target="_blank"><br> <img src="https://github.com/user-attachments/assets/9e220d56-5228-4b4e-9af4-240bc67e0c71" width="" height="70" /></a> | Status |
+| ---- | ---- | ---- | ---- | ---- |
+| **Porting Guide** | Raspberry PI Pico | &#10004; | UNO R3 | &#x23F3; |
+
