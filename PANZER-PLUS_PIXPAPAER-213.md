@@ -144,7 +144,9 @@ Step 2. Please download the utility source code in the rootfs of PANZER-PLUS, th
         Coming soon
 
 
-Expection results:
+Expection results: <br>
+final image is some procgress bar with black background <br>
+![ezgif-4-6446ab9a4e](https://github.com/user-attachments/assets/224ee0a3-6eda-4a69-8ffe-28d9f717d7a8)
 
 
         
