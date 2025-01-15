@@ -172,6 +172,7 @@ Thanks goes to these wonderful people from open source community:
   <tbody>
     <tr>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/wigcheng"><img src="https://avatars.githubusercontent.com/u/7148592?v=4" width="100px;" alt="Wig Cheng"/><br /><sub><b>Wig Cheng</b></sub></a><br /><a href="https://github.com/wigcheng/open-epd/commits?author=wigcheng" title="Code">💻</a></td>
+<td align="center" valign="top" width="14.28%"><a href="https://github.com/meteorTriangle"><img src="https://avatars.githubusercontent.com/u/87787306?v=4" width="100px;" alt="Triangle Alien"/><br /><sub><b>Triangle Alien</b></sub></a><br />💻</td>
     </tr>
   </tbody>
 </table>
