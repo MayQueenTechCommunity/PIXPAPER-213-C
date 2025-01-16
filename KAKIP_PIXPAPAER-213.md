@@ -16,6 +16,8 @@ Firstly, connecting the PIXPAPER-213's connector to the programming cable we've 
 
 Then, connect to the Kakip specific PINs of 40-PIN header as follows:
 
+<img src="https://github.com/user-attachments/assets/6362c17b-1d5d-4137-93dd-5e0041440099" width="400"> <br>
+<img src="https://github.com/user-attachments/assets/98380f8c-72f4-44fb-a657-1628215f39a5" width="400">
 
 
 
@@ -31,7 +33,50 @@ Then, connect to the Kakip specific PINs of 40-PIN header as follows:
 
 ## User-Space Utility instructions (Linux OS)
 
+Step 1. Install necessary packages
 
+        Ubuntu/Debian:
+        $ sudo apt install gpiod libgpiod-dev
+
+        Yocto:
+        Need add the line in machine conf file as following:
+        IMAGE_INSTALL_append = " libgpiod"
+
+
+
+Step 2. Please download the utility source code in the rootfs of PANZER-PLUS, then compile it and execute the compiled executable file.
+
+        PIXPAPER-213-C:
+        # wget https://raw.githubusercontent.com/wigcheng/open-epd/refs/heads/master/2.13/color/spi/jd79661-epd-image-kakip.c
+        # gcc -o jd79661_test_flash jd79661-epd-image-kakip.c -lgpiod
+        # ./jd79661_test_flash 
+
+        Note that if your wired connection is different with chapter 1 "Hardware Preparison", especially DC# PIN, RST# PIN, and BUSY PIN, also can issue command 'gpioinfo' to check the gpip pin detail. 
+        Please modify the specific macros definition of jd79661_test_flash jd79661-epd-image-kakip.c:
+
+        #define EPD_GPIO_CHIP "gpiochip0"
+        #define EPD_DC_PIN 60
+        #define EPD_RST_PIN 87
+        #define EPD_BUSY_PIN 91
+
+        PIXPAPER-213-M:
+        Coming soon
+
+
+Expection results: <br>
+
+
+        
+Step 3. If I need change a new image for PIXPAPER-213 series, how to update the image raw data.
+
+        Download the PNG to RAW converter base on python3, remember to install opencv package first
+        $ sudo apt install python3-opencv
+        $ wget https://raw.githubusercontent.com/wigcheng/open-epd/refs/heads/master/2.13/color/spi/png2epd.py
+
+        Then, rename your PNG file as test.png, and excute the python script
+        $ python3 png2epd.py
+
+        It will generate a output file: test_HEX.txt, the copy the content and paste to img_hex array of jd79661-epd-image-kakip.c instead of old array data.
 
 ## Contributors
 
