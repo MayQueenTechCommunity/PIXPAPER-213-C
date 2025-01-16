@@ -66,6 +66,12 @@ Step 2. Please download the utility source code in the rootfs of PANZER-PLUS, th
 Expection results: <br>
 
 
+
+
+https://github.com/user-attachments/assets/33c27ed3-f82c-435f-919b-019f91ef661a
+
+
+
         
 Step 3. If I need change a new image for PIXPAPER-213 series, how to update the image raw data.
 
