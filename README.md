@@ -18,6 +18,7 @@ We will gradually port it to more embedded platforms, so this page will be updat
 | :----------------------------------------------------------: | :----------------------------------------------------------- |
 | Screen size | 2.13 inch |
 | Resolution | 250x122 |
+| Color | PIXPAPER-213-C: 4-color - black, white, yellow, red <br> PIXPAPER-213-M: mono - black, white  <br> |
 | DPI | 130 |
 | Active area | 23.7046×48.55(mm) |
 | Interface | SPI |
