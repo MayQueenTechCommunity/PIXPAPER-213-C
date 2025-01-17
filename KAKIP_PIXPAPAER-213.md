@@ -29,7 +29,7 @@ Then, connect to the Kakip specific PINs of 40-PIN header as follows:
 | 6.1 | &#x23F3;|
 | 5.10 |&#10004;|
 
-Note that if your target OS is Ubuntu image revision V8 and above, it has device tree overlay function inside the image, no need modify any source code, please follows from Step 1-1.
+Note that if your target OS is Ubuntu image revision V8 and above, it has device tree overlay function inside the image, no need modify any source code, please follows from Step 1-1.<br>
 And if your target OS is Ubuntu image is lower revision, please it has to tweaked device tree file, follows from Step 2-1.
 
 Step 1-1. **Device tree overlay method will be updated soon**
