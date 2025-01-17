@@ -41,7 +41,7 @@ JP3 (EXT_GPIO8=DC#, EXT_GPIO6=RST#, EXT_GPIO4=BUSY)
 | 5.15 |&#10004;|
 
 Step 1. Download the kernel source and modify the target device tree file: imx8mp-b643-ppc.dts <br>
-Step 2. Merge the patch as follows modification, q quick way is download these code as a patch, then use git apply into the kernel source.<br>
+Step 2. Merge the patch as follows modification, a quick way is download these code as a patch, then use git apply into the kernel source.<br>
 
 ```diff
 diff --git a/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts b/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts
