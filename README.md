@@ -31,7 +31,7 @@ We will gradually port it to more embedded platforms, so this page will be updat
 
 | **Platform** | <a href="https://www.renesas.com/" target="_blank"><br> <img src="https://www.macnica.com/apac/galaxy/zh_tw/products-support/products/renesas.coreimg.jpeg/structure/_jcr_content/root/container/container/bannerimage/1653236359047.jpeg" width="" height="100" /></a> | Status |<a href="https://www.nxp.com/" target="_blank"><br> <img src="https://github.com/TechNexion-Vision/.github/assets/28101204/67cc61c0-6bb7-44d5-889a-1ba5d4c0b9b5" width="" height="80" /></a> | Status |
 | ---- | ---- | ---- | ---- | ---- |
-| **Porting Guide** | [KAKIP SBC(RZ/V2H)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/KAKIP_PIXPAPAER-213.md) | &#10004;  |  [PANZER-PLUS(IMX8MP)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/PANZER-PLUS_PIXPAPAER-213.md) <br> Mecha Compat (Coming soon) | &#10004; <br> &#x23F3;|
+| **Porting Guide** | [KAKIP SBC(RZ/V2H)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/KAKIP_PIXPAPAER-213.md) | &#10004;  |  [PANZER-PLUS(IMX8MP)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/PANZER-PLUS_PIXPAPAER-213.md) <br> Mecha Comet (Coming soon) | &#10004; <br> &#x23F3;|
 
 
 #### MCU Supported Platforms
