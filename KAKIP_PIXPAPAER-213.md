@@ -9,7 +9,7 @@
 
 Because [Kakip AI-Single Board Computer](https://www.kakip.ai/) has a 40-PIN pin header and compatible with Raspberry PI, so it has one SPI interface can be used.
 
-Firstly, connecting the PIXPAPER-213's connector to the programming cable we've provided. Connect the other end of the cable to the corresponding pins, matching the colors as defined.
+Firstly, connecting the PIXPAPER-213-C's connector to the programming cable we've provided. Connect the other end of the cable to the corresponding pins, matching the colors as defined.
 
 ![image](https://github.com/user-attachments/assets/af657fcd-c5c5-4a54-b7a7-40c95f902b9c)
 ![image](https://github.com/user-attachments/assets/6ae059a1-9711-4d93-b800-46bffb24d128)
@@ -108,9 +108,6 @@ Step 2. Please download the utility source code in the rootfs of PANZER-PLUS, th
         #define EPD_RST_PIN 87
         #define EPD_BUSY_PIN 91
 
-        PIXPAPER-213-M:
-        Coming soon
-
 
 Expection results: <br>
 
@@ -122,7 +119,7 @@ https://github.com/user-attachments/assets/33c27ed3-f82c-435f-919b-019f91ef661a
 
 
         
-Step 3. If I need change a new image for PIXPAPER-213 series, how to update the image raw data.
+Step 3. If I need change a new image for PIXPAPER-213-C, how to update the image raw data.
 
         Download the PNG to RAW converter base on python3, remember to install opencv package first
         $ sudo apt install python3-opencv
