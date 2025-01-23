@@ -16,7 +16,7 @@ Based on the PANZER-PLUS hardware design, SPI interface support was not original
 - Purchase reworked hardware directly from us.
 - Use an external USB-to-SPI dongle.
 
-Next, connect the PIXPAPER-213's connector to the programming cable we've provided. Connect the other end of the cable to the corresponding pins, matching the colors as defined.
+Next, connect the PIXPAPER-213-C's connector to the programming cable we've provided. Connect the other end of the cable to the corresponding pins, matching the colors as defined.
 
 ![image](https://github.com/user-attachments/assets/af657fcd-c5c5-4a54-b7a7-40c95f902b9c)
 ![image](https://github.com/user-attachments/assets/6ae059a1-9711-4d93-b800-46bffb24d128)
@@ -140,9 +140,6 @@ Step 2. Please download the utility source code in the rootfs of PANZER-PLUS, th
         #define EPD_RST_PIN 13
         #define EPD_BUSY_PIN 11
 
-        PIXPAPER-213-M:
-        Coming soon
-
 
 Expection results: <br>
 final image is some procgress bar with black background <br>
@@ -150,7 +147,7 @@ final image is some procgress bar with black background <br>
 
 
         
-Step 3. If I need change a new image for PIXPAPER-213 series, how to update the image raw data.
+Step 3. If I need change a new image for PIXPAPER-213-C, how to update the image raw data.
 
         Download the PNG to RAW converter base on python3, remember to install opencv package first
         $ sudo apt install python3-opencv
