@@ -96,12 +96,12 @@ Step 1. Install necessary packages
 Step 2. Please download the utility source code in the rootfs of PANZER-PLUS, then compile it and execute the compiled executable file.
 
         PIXPAPER-213-C:
-        # wget https://raw.githubusercontent.com/wigcheng/open-epd/refs/heads/master/2.13/color/spi/jd79661-epd-image-kakip.c
-        # gcc -o jd79661_test_flash jd79661-epd-image-kakip.c -lgpiod
-        # ./jd79661_test_flash 
+        # wget https://raw.githubusercontent.com/wigcheng/open-epd/refs/heads/master/2.13/color/spi/pixpaper-213-c-test-kakip.c
+        # gcc -o epd_test pixpaper-213-c-test-kakip.c -lgpiod
+        # ./epd_test
 
         Note that if your wired connection is different with chapter 1 "Hardware Preparison", especially DC# PIN, RST# PIN, and BUSY PIN, also can issue command 'gpioinfo' to check the gpip pin detail. 
-        Please modify the specific macros definition of jd79661_test_flash jd79661-epd-image-kakip.c:
+        Please modify the specific macros definition of pixpaper-213-c-test-kakip.c:
 
         #define EPD_GPIO_CHIP "gpiochip0"
         #define EPD_DC_PIN 60
