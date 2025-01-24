@@ -62,7 +62,7 @@ Step 2. Please download the utility source code in the rootfs of PANZER-PLUS, th
         # ./epd_test
 
         Note that if your wired connection is different with chapter 1 "Hardware Preparison", especially DC# PIN, RST# PIN, and BUSY PIN, also can issue command 'gpioinfo' to check the gpip pin detail. 
-        Please modify the specific macros definition of jd79661_test_flash jd79661-epd-image-kakip.c:
+        Please modify the specific macros definition of pixpaper-213-c-test-rpi2.c:
 
         #define EPD_GPIO_CHIP "gpiochip0"
         #define EPD_DC_PIN 23
@@ -88,7 +88,7 @@ Step 3. If I need change a new image for PIXPAPER-213-C, how to update the image
         Then, rename your PNG file as test.png, and excute the python script
         $ python3 png2epd.py
 
-        It will generate a output file: test_HEX.txt, the copy the content and paste to img_hex array of jd79661-epd-image-kakip.c instead of old array data.
+        It will generate a output file: test_HEX.txt, the copy the content and paste to img_hex array of pixpaper-213-c-test-rpi2.c instead of old array data.
 
 ## Contributors
 
