@@ -22,7 +22,7 @@ We will gradually port it to more embedded platforms, so this page will be updat
 | DPI | 130 |
 | Active area | 23.7046×48.55(mm) |
 | Interface | SPI |
-| Partial update | PIXPAPER-213-C: NO <br> PIXPAPER-213-M: YES |
+| Partial update | NO |
 | PINOUT | 3.3V, GND, MOSI, SCK, CS#, DC#, RST#, BUSY (DC#, RST#, BUSY are GPIOs)|
 | Enclosure | Plastic using 3D printer |
 |Operating temperature| 0-40 ℃ |
