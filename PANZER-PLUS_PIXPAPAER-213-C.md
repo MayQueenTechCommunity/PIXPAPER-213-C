@@ -123,9 +123,24 @@ Step 1. Install necessary packages
         Need add the line in machine conf file as following:
         IMAGE_INSTALL_append = " libgpiod"
 
+Step 2. Prepare a 250x122 size picture what you want to showing, then make a image raw data based header file
+
+        Download the PNG to RAW converter base on python3, remember to install opencv package first
+        $ sudo apt install python3-opencv
+        $ wget https://raw.githubusercontent.com/wigcheng/open-epd/refs/heads/master/2.13/color/spi/png2epd.py
+
+        Then, rename your PNG file as test.png, and excute the python script
+        $ python3 png2epd.py
+
+        It will generate a output file: png_HEX.h, the copy the same folder witth pixpaper-213-c-test-kakip.c.
+        Note that this step can running on host PC side or target board, but png_HEX.h must be put into the folder with c file together before 
+        compiling.
+
+        Download a sample header file:
+        wget https://raw.githubusercontent.com/wigcheng/open-epd/refs/heads/master/2.13/color/spi/png_HEX.h
 
 
-Step 2. Please download the utility source code in the rootfs of PANZER-PLUS, then compile it and execute the compiled executable file.
+Step 3. Please download the utility source code in the rootfs of PANZER-PLUS, then compile it and execute the compiled executable file.
 
         PIXPAPER-213-C:
         # wget https://raw.githubusercontent.com/wigcheng/open-epd/refs/heads/master/2.13/color/spi/pixpaper-213-c-test-imx8mp.c
@@ -144,20 +159,6 @@ Step 2. Please download the utility source code in the rootfs of PANZER-PLUS, th
 Expection results: <br>
 final image is some procgress bar with black background <br>
 ![ezgif-4-6446ab9a4e](https://github.com/user-attachments/assets/224ee0a3-6eda-4a69-8ffe-28d9f717d7a8)
-
-
-        
-Step 3. If I need change a new image for PIXPAPER-213-C, how to update the image raw data.
-
-        Download the PNG to RAW converter base on python3, remember to install opencv package first
-        $ sudo apt install python3-opencv
-        $ wget https://raw.githubusercontent.com/wigcheng/open-epd/refs/heads/master/2.13/color/spi/png2epd.py
-
-        Then, rename your PNG file as test.png, and excute the python script
-        $ python3 png2epd.py
-
-        It will generate a output file: test012_HEX.txt, the copy the content and paste to img_hex array of pixpaper-213-c-test-imx8mp.c instead of old array data.
-
 
 
 ## Contributors
