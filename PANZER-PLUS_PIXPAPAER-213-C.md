@@ -132,7 +132,7 @@ Step 2. Prepare a 250x122 size picture what you want to showing, then make a ima
         Then, rename your PNG file as test.png, and excute the python script
         $ python3 png2epd.py
 
-        It will generate a output file: png_HEX.h, the copy the same folder witth pixpaper-213-c-test-kakip.c.
+        It will generate a output file: png_HEX.h, the copy the same folder witth pixpaper-213-c-test-imx8mp.c.
         Note that this step can running on host PC side or target board, but png_HEX.h must be put into the folder with c file together before 
         compiling.
 
