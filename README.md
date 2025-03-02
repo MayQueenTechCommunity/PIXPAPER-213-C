@@ -31,7 +31,7 @@ We will gradually port it to more embedded platforms, so this page will be updat
 
 | **Platform** | <a href="https://www.renesas.com/" target="_blank"><br> <img src="https://www.macnica.com/apac/galaxy/zh_tw/products-support/products/renesas.coreimg.jpeg/structure/_jcr_content/root/container/container/bannerimage/1653236359047.jpeg" width="" height="100" /></a> | Status |<a href="https://www.nxp.com/" target="_blank"><br> <img src="https://github.com/TechNexion-Vision/.github/assets/28101204/67cc61c0-6bb7-44d5-889a-1ba5d4c0b9b5" width="" height="80" /></a> | Status |
 | ---- | ---- | ---- | ---- | ---- |
-| **Porting Guide** | [KAKIP SBC(RZ/V2H)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/KAKIP_PIXPAPAER-213-C.md) | &#10004;  |  [PANZER-PLUS(IMX8MP)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/PANZER-PLUS_PIXPAPAER-213-C.md) <br> [FRDM-IMX93(IMX93)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/FRDM-IMX93_PIXPAPAER-213-C.md) | &#10004; <br> &#10004;|
+| **Porting Guide** | [KAKIP SBC(RZ/V2H)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/KAKIP_PIXPAPAER-213-C.md) | &#10004;  |  [PIXPAPER-213-C(IMX8MP)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/PIXPAPER-213-C_PIXPAPAER-213-C.md) <br> [FRDM-IMX93(IMX93)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/FRDM-IMX93_PIXPAPAER-213-C.md) | &#10004; <br> &#10004;|
 
 #### MPU Supported Platforms (ARM32)
 
@@ -45,3 +45,20 @@ We will gradually port it to more embedded platforms, so this page will be updat
 | ---- | ---- | ---- | ---- | ---- |
 | **Porting Guide** | [Raspberry PI Pico](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/RPI-PICO_PIXPAPAER-213-C.md) | &#10004; | UNO R3 | &#x23F3; |
 
+#### Price and Availability
+PIXPAPER-213-C is now available through direct sales (www.mayqueentech.com).
+PIXPAPER-213-C is offered in a variety of configurations starting from $29 for 1pc order.
+Detailed ordering and pricing information is available on sales contact window.
+<br>
+
+#### About MayQueen Technologies
+MayQueen Technologies is a leading designer and manufacturer of ARM based embedded computing products since 2015.
+MayQueen Technologies products are used in digital signage, telecommunication, industrial PC, gaming, medical devices, aerospace and marine systems and countless other applications.
+MayQueen Technologies offices are located in Sheffield, U.K. and Taoyuan, Taiwan.
+<br>
+
+#### For additional details please contact:
+
+International Sales: Grace To
+<br> 
+sales@mayqueentech.com 
