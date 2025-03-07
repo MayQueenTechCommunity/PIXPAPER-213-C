@@ -45,6 +45,10 @@ We will gradually port it to more embedded platforms, so this page will be updat
 | ---- | ---- | ---- | ---- | ---- |
 | **Porting Guide** | [Raspberry PI Pico](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/RPI-PICO_PIXPAPAER-213-C.md) | &#10004; | UNO R3 | &#x23F3; |
 
+
+#### INTRO. video
+[![PIXPAPER-213-C](https://res.cloudinary.com/marcomontalbano/image/upload/v1741367072/video_to_markdown/images/youtube--Of7b3zhF5BQ-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/Of7b3zhF5BQ?si=HYnkLzXCjnIHI1I5 "PIXPAPER-213-C")
+
 #### Price and Availability
 PIXPAPER-213-C is now available through direct sales (www.mayqueentech.com).
 PIXPAPER-213-C is offered in a variety of configurations starting from $29 for 1pc order.
