@@ -6,6 +6,7 @@ A 2.13 inch prototype 4-color Electronic Paper Display (EPD) module, in collabor
 It is based on an SPI interface and is fully compatible with our NXP edge fanless AIoT computing solutions.<br>
 We will gradually port it to more embedded platforms, so this page will be updated periodically!
 
+----------------------
 
 
 #### Overview
@@ -27,6 +28,8 @@ We will gradually port it to more embedded platforms, so this page will be updat
 | Enclosure | Plastic using 3D printer |
 |Operating temperature| 0-40 ℃ |
 
+----------------------
+
 #### MPU Supported Platforms (ARM64)
 
 | **Platform** | <a href="https://www.renesas.com/" target="_blank"><br> <img src="https://www.macnica.com/apac/galaxy/zh_tw/products-support/products/renesas.coreimg.jpeg/structure/_jcr_content/root/container/container/bannerimage/1653236359047.jpeg" width="" height="100" /></a> | Status |<a href="https://www.nxp.com/" target="_blank"><br> <img src="https://github.com/TechNexion-Vision/.github/assets/28101204/67cc61c0-6bb7-44d5-889a-1ba5d4c0b9b5" width="" height="80" /></a> | Status |
@@ -45,10 +48,11 @@ We will gradually port it to more embedded platforms, so this page will be updat
 | ---- | ---- | ---- | ---- | ---- |
 | **Porting Guide** | [Raspberry PI Pico](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/RPI-PICO_PIXPAPAER-213-C.md) | &#10004; | UNO R3 | &#x23F3; |
 
-
+----------------------
 #### INTRO. video
 [![PIXPAPER-213-C](https://res.cloudinary.com/marcomontalbano/image/upload/v1741367072/video_to_markdown/images/youtube--Of7b3zhF5BQ-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/Of7b3zhF5BQ?si=HYnkLzXCjnIHI1I5 "PIXPAPER-213-C")
 
+----------------------
 #### Price and Availability
 PIXPAPER-213-C is now available through direct sales (www.mayqueentech.com).
 PIXPAPER-213-C is offered in a variety of configurations starting from $29 for 1pc order.
