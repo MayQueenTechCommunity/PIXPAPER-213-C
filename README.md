@@ -20,7 +20,7 @@ We will gradually port it to more embedded platforms, so this page will be updat
 | Screen size | 2.13 inch |
 | Resolution | 250x122 |
 | Color | black, white, yellow, red |
-| DPI | 130 |
+| PPI | 130.6 |
 | Active area | 23.7046×48.55(mm) |
 | Interface | SPI |
 | Partial update | NO |
