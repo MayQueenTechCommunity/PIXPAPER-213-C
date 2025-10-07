@@ -15,8 +15,9 @@ Firstly, connecting the PIXPAPER-213-C's connector to the programming cable we'v
 
 Then, connect to the D3-G specific PINs of 40-PIN header as follows:
 
-<img src="https://github.com/user-attachments/assets/d401dc80-7faa-4536-b914-a8caaaaeff19" width="600"> <br>
-<img src="https://github.com/user-attachments/assets/deae640f-062d-47e9-8889-c7c233c8f22b" width="400">
+<img src="https://github.com/user-attachments/assets/d401dc80-7faa-4536-b914-a8caaaaeff19" width="800"> <br>
+<img src="https://github.com/user-attachments/assets/cfbe02b8-f010-4449-88ae-38e6ea221e81" width="400"> <br>
+
 
 
 
@@ -25,7 +26,7 @@ Then, connect to the D3-G specific PINs of 40-PIN header as follows:
 
 |Kernel|Tested|
 |---|---|
-| 6.6 |&#10004;|
+| 5.10 |&#10004;|
 
 Because there has a SPI interface on Linux already, so no need any tweaking in kernel space, just need to checking the device node is exist or not <br>
 
@@ -53,7 +54,7 @@ Step 2. Prepare a 250x122 size picture what you want to showing, then make a ima
         Then, rename your PNG file as test.png, and excute the python script
         $ python3 png2epd.py
 
-        It will generate a output file: png_HEX.h, the copy the same folder witth pixpaper-213-c-test-frdm-imx93.c.
+        It will generate a output file: png_HEX.h, the copy the same folder witth pixpaper-213-c-test-d3-g.c.
         Note that this step can running on host PC side or target board, but png_HEX.h must be put into the folder with c file together before 
         compiling.
 
@@ -61,27 +62,25 @@ Step 2. Prepare a 250x122 size picture what you want to showing, then make a ima
         wget https://raw.githubusercontent.com/open-EPD/user-space-examples/refs/heads/master/2.13/color/spi/png_HEX.h
 
 
-Step 3. Please download the utility source code in the rootfs of FRDM-IMX93 SBC, then compile it and execute the compiled executable file.
+Step 3. Please download the utility source code in the rootfs of D3-G SBC, then compile it and execute the compiled executable file.
 
         PIXPAPER-213-C:
-        # wget https://raw.githubusercontent.com/open-EPD/user-space-examples/refs/heads/master/2.13/color/spi/pixpaper-213-c-test-frdm-imx93.c
-        # gcc -o epd_test pixpaper-213-c-test-frdm-imx93.c -lgpiod
+        # wget https://raw.githubusercontent.com/open-EPD/user-space-examples/refs/heads/master/2.13/color/spi/pixpaper-213-c-test-d3-g.c
+        # gcc -o epd_test pixpaper-213-c-test-d3-g.c -lgpiod
         # ./epd_test
 
         Note that if your wired connection is different with chapter 1 "Hardware Preparison", especially DC# PIN, RST# PIN, and BUSY PIN, also can issue command 'gpioinfo' to check the gpip pin detail. 
-        Please modify the specific macros definition of pixpaper-213-c-test-frdm-imx93.c:
+        Please modify the specific macros definition of pixpaper-213-c-test-d3-g.c:
 
-        #define EPD_GPIO_CHIP "gpiochip0"
-        #define EPD_DC_PIN 0
-        #define EPD_RST_PIN 5
-        #define EPD_BUSY_PIN 26
+        #define EPD_GPIO_CHIP "gpiochip4"
+        #define EPD_DC_PIN 1
+        #define EPD_RST_PIN 2
+        #define EPD_BUSY_PIN 6
 
 
 Expection results: <br>
 
-
-
-https://github.com/user-attachments/assets/69581ec8-6681-477a-bca2-5b8315e38604
+https://github.com/user-attachments/assets/a4ace9cb-fdb2-4bd9-bf6c-75e449d09f82
 
 
 
