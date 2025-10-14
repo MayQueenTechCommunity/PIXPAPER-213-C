@@ -38,7 +38,7 @@ We will gradually port it to more embedded platforms, so this page will be updat
 
 | **Platform** | <a href="https://www.rockchip.com/" target="_blank"><br> <img src="https://github.com/user-attachments/assets/6c51be9a-8cc4-4077-b67d-f1f72890f623" width="200" height="100" /></a> | Status |
 | ---- | ---- | ---- |
-| **Porting Guide** | [WAFER-RK3588(RK3588)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/WAFER-RK3588_PIXPAPAER-213-C.md) | &#10004;  |
+| **Porting Guide** | [CUBE-RK3588(RK3588)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/CUBE-RK3588_PIXPAPAER-213-C.md) | &#10004;  |
 
 #### MPU Supported Platforms (ARM32)
 
