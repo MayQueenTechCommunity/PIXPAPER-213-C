@@ -52,13 +52,6 @@ We will gradually port it to more embedded platforms, so this page will be updat
 | ---- | ---- | ---- | ---- | ---- |
 | **Porting Guide** | [Raspberry PI Pico](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/RPI-PICO_PIXPAPAER-213-C.md) | &#10004; | [FRDM-IMX93(M33)](https://github.com/MayQueenTechCommunity/PIXPAPER-213/blob/main/FRDM-IMX93-M33_PIXPAPAER-213-C.md) | &#10004; |
 
-#### MCU Supported Platforms (RISC-V)
-
-| **Platform** | <a href="https://www.arduino.cc/" target="_blank"><br> <img src="https://github.com/user-attachments/assets/9e220d56-5228-4b4e-9af4-240bc67e0c71" width="" height="70" /></a> | Status |
-| ---- | ---- | ---- |
-| **Porting Guide** | UIAPduino ProMicro CH32V003 | &#x23F3; |
-
-
 ----------------------
 #### INTRO. video
 [![PIXPAPER-213-C](https://res.cloudinary.com/marcomontalbano/image/upload/v1741367072/video_to_markdown/images/youtube--Of7b3zhF5BQ-c05b58ac6eb4c4700831b2b3070cd403.jpg)](https://youtu.be/Of7b3zhF5BQ?si=HYnkLzXCjnIHI1I5 "PIXPAPER-213-C")
