@@ -11,95 +11,65 @@ Based on the [CUBE-RK3588](https://github.com/MayQueenTechCommunity/CUBE-RK3588)
 ![image](https://github.com/user-attachments/assets/af657fcd-c5c5-4a54-b7a7-40c95f902b9c)
 ![image](https://github.com/user-attachments/assets/6ae059a1-9711-4d93-b800-46bffb24d128)
 
-The CUBE-RK3588 PCBA can be connected as follows JP2 & JP3 mapping:
+The CUBE-RK3588 SPI can be connected as follows COM1 & COM2 mapping:
+<img width="536" height="401" alt="image" src="https://github.com/user-attachments/assets/b55fde25-bec6-4431-8a2b-a6f5b1d2e876" />
 
-JP2
-
-![image](https://github.com/user-attachments/assets/c8c17f15-2931-46ce-b59c-35a7c2ab32fb)
-
-
-JP3 (EXT_GPIO8=DC#, EXT_GPIO6=RST#, EXT_GPIO4=BUSY)
-
-![image](https://github.com/user-attachments/assets/85ae632d-a87e-4bb6-906d-dba9d6b1c32b)
 
 
 ## Driver Installation instructions
 
 |Kernel|Tested|
 |---|---|
-| 6.6 |&#10004;|
-| 5.15 |&#10004;|
+| 6.1 |&#10004;|
 
-Step 1. Download the kernel source and modify the target device tree file: imx8mp-b643-ppc.dts <br>
-Step 2. Merge the patch as follows modification, a quick way is download these code as a patch, then use git apply into the kernel source.<br>
+Step 1. Download the kernel source and modify the target device tree file: rk3588-b675.dts <br>
+Step 2. Merge the patch as follows modification from UART to SPI, a quick way is download these code as a patch, then use git apply into the kernel source.<br>
 
 ```diff
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts b/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts
-index 0079ffc2501b..dd6fb8cdb8ba 100755
---- a/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts
-@@ -198,13 +198,13 @@ lte_reset {
-        };
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-b675.dts b/arch/arm64/boot/dts/rockchip/rk3588-b675.dts
+index caf79a6b1505..7a4bb47d0141 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-b675.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-b675.dts
+@@ -1250,13 +1250,11 @@ &u2phy3_host {
  };
-
--&ecspi2 {
-+&ecspi1 {
-        #address-cells = <1>;
-        #size-cells = <0>;
--       fsl,spi-num-chipselects = <1>;
-+       num-cs = <1>;
-        pinctrl-names = "default";
--       pinctrl-0 = <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
--       cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
-+       pinctrl-0 = <&pinctrl_ecspi1 &pinctrl_ecspi1_cs>;
-+       cs-gpios = <&gpio5 9 GPIO_ACTIVE_LOW>;
-        status = "okay";
-
-        spidev1: spi@0 {
-@@ -616,15 +616,6 @@ &uart2 {
-        status = "okay";
+ 
+ &uart5 {
+-	status = "okay";
+-	pinctrl-0 = <&uart5m0_xfer &uart5m0_ctsn &uart5m0_rtsn>;
++	status = "disabled";
  };
-
--&uart3 {
--       pinctrl-names = "default";
--       pinctrl-0 = <&pinctrl_uart3>;
--       assigned-clocks = <&clk IMX8MP_CLK_UART3>;
--       assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_80M>;
--       fsl,uart-has-rtscts;
--       status = "okay";
--};
--
- &usb3_phy0 {
-        status = "okay";
+ 
+ &uart6 {
+-	status = "okay";
+-	pinctrl-0 = <&uart6m1_xfer &uart6m1_ctsn &uart6m1_rtsn>;
++	status = "disabled";
  };
-@@ -950,12 +941,17 @@ MX8MP_IOMUXC_UART2_TXD__UART2_DCE_TX      0x49
-                >;
-        };
-
--       pinctrl_uart3: uart3grp {
-+       pinctrl_ecspi1: ecspi1grp {
-                fsl,pins = <
--                       MX8MP_IOMUXC_ECSPI1_SCLK__UART3_DCE_RX          0x140
--                       MX8MP_IOMUXC_ECSPI1_MOSI__UART3_DCE_TX          0x140
--                       MX8MP_IOMUXC_ECSPI1_SS0__UART3_DCE_RTS          0x140
--                       MX8MP_IOMUXC_ECSPI1_MISO__UART3_DCE_CTS         0x140
-+                       MX8MP_IOMUXC_ECSPI1_SCLK__ECSPI1_SCLK           0x140
-+                       MX8MP_IOMUXC_ECSPI1_MOSI__ECSPI1_MOSI           0x140
-+                       MX8MP_IOMUXC_ECSPI1_MISO__ECSPI1_MISO           0x140
-+               >;
-+       };
+ 
+ &uart9 {
+@@ -1528,3 +1526,16 @@ &sdio {
+ &dmc {
+ 	status = "disabled";
+ };
 +
-+       pinctrl_ecspi1_cs: ecspi1cs {
-+               fsl,pins = <
-+                       MX8MP_IOMUXC_ECSPI1_SS0__GPIO5_IO09                     0x140
-                >;
-        };
++&spi4 {
++	status = "okay";
++	pinctrl-names = "default";
++	pinctrl-0 = <&spi4m2_pins>;
++	cs-gpios = <&gpio4 RK_PD4 GPIO_ACTIVE_LOW>;
++	num-cs = <1>;
++	spi_test@0 {
++		compatible = "rockchip,spidev";
++		reg = <0>;
++		spi-max-frequency = <5000000>;
++	};
++};
+-- 
 ```
 
 Step 3. Recompile the kernel and copy the new dtb file to the boot partition instead of the old one. <br>
 Step 4. Boot up the system and checking the device node is exist or not <br>
 
-    ls /dev/spidev1.0
+    ls /dev/spidev4.0
     
 
 ## User-Space Utility instructions (Linux OS)
@@ -133,17 +103,17 @@ Step 2. Prepare a 250x122 size picture what you want to showing, then make a ima
 Step 3. Please download the utility source code in the rootfs of CUBE-RK3588, then compile it and execute the compiled executable file.
 
         PIXPAPER-213-C:
-        # wget https://raw.githubusercontent.com/open-EPD/user-space-examples/refs/heads/master/2.13/color/spi/pixpaper-213-c-test-imx8mp.c
-        # gcc -o epd_test pixpaper-213-c-test-imx8mp.c -lgpiod
+        # wget https://github.com/open-EPD/user-space-examples/raw/refs/heads/master/2.13/color/spi/pixpaper-213-c-test-rk3588.c
+        # gcc -o epd_test pixpaper-213-c-test-rk3588.c -lgpiod
         # ./epd_test
 
         Note that if your wired connection is different with chapter 1 "Hardware Preparison", especially DC# PIN, RST# PIN, and BUSY PIN,
         please modify the specific macros definition of pixpaper-213-c-test-imx8mp.c:
 
-        #define EPD_GPIO_CHIP "gpiochip5"
-        #define EPD_DC_PIN 15
-        #define EPD_RST_PIN 13
-        #define EPD_BUSY_PIN 11
+        #define EPD_GPIO_CHIP "gpiochip4"
+        #define EPD_DC_PIN 26
+        #define EPD_RST_PIN 27
+        #define EPD_BUSY_PIN 29
 
 
 Expection results: <br>
