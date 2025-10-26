@@ -1,1 +1,174 @@
+[![License: GPL v2](https://img.shields.io/badge/License-GPL%20v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
+## Overview
+
+## Hardware Preparison
+
+Based on the [CUBE-RK3588](https://github.com/MayQueenTechCommunity/CUBE-RK3588) hardware design, SPI interface support was not originally included. However, you have a option to use the SPI interface from UART interfaces on CUBE-RK3588: <br>
+
+
+
+![image](https://github.com/user-attachments/assets/af657fcd-c5c5-4a54-b7a7-40c95f902b9c)
+![image](https://github.com/user-attachments/assets/6ae059a1-9711-4d93-b800-46bffb24d128)
+
+The CUBE-RK3588 PCBA can be connected as follows JP2 & JP3 mapping:
+
+JP2
+
+![image](https://github.com/user-attachments/assets/c8c17f15-2931-46ce-b59c-35a7c2ab32fb)
+
+
+JP3 (EXT_GPIO8=DC#, EXT_GPIO6=RST#, EXT_GPIO4=BUSY)
+
+![image](https://github.com/user-attachments/assets/85ae632d-a87e-4bb6-906d-dba9d6b1c32b)
+
+
+## Driver Installation instructions
+
+|Kernel|Tested|
+|---|---|
+| 6.6 |&#10004;|
+| 5.15 |&#10004;|
+
+Step 1. Download the kernel source and modify the target device tree file: imx8mp-b643-ppc.dts <br>
+Step 2. Merge the patch as follows modification, a quick way is download these code as a patch, then use git apply into the kernel source.<br>
+
+```diff
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts b/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts
+index 0079ffc2501b..dd6fb8cdb8ba 100755
+--- a/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mp-b643-ppc.dts
+@@ -198,13 +198,13 @@ lte_reset {
+        };
+ };
+
+-&ecspi2 {
++&ecspi1 {
+        #address-cells = <1>;
+        #size-cells = <0>;
+-       fsl,spi-num-chipselects = <1>;
++       num-cs = <1>;
+        pinctrl-names = "default";
+-       pinctrl-0 = <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
+-       cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
++       pinctrl-0 = <&pinctrl_ecspi1 &pinctrl_ecspi1_cs>;
++       cs-gpios = <&gpio5 9 GPIO_ACTIVE_LOW>;
+        status = "okay";
+
+        spidev1: spi@0 {
+@@ -616,15 +616,6 @@ &uart2 {
+        status = "okay";
+ };
+
+-&uart3 {
+-       pinctrl-names = "default";
+-       pinctrl-0 = <&pinctrl_uart3>;
+-       assigned-clocks = <&clk IMX8MP_CLK_UART3>;
+-       assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_80M>;
+-       fsl,uart-has-rtscts;
+-       status = "okay";
+-};
+-
+ &usb3_phy0 {
+        status = "okay";
+ };
+@@ -950,12 +941,17 @@ MX8MP_IOMUXC_UART2_TXD__UART2_DCE_TX      0x49
+                >;
+        };
+
+-       pinctrl_uart3: uart3grp {
++       pinctrl_ecspi1: ecspi1grp {
+                fsl,pins = <
+-                       MX8MP_IOMUXC_ECSPI1_SCLK__UART3_DCE_RX          0x140
+-                       MX8MP_IOMUXC_ECSPI1_MOSI__UART3_DCE_TX          0x140
+-                       MX8MP_IOMUXC_ECSPI1_SS0__UART3_DCE_RTS          0x140
+-                       MX8MP_IOMUXC_ECSPI1_MISO__UART3_DCE_CTS         0x140
++                       MX8MP_IOMUXC_ECSPI1_SCLK__ECSPI1_SCLK           0x140
++                       MX8MP_IOMUXC_ECSPI1_MOSI__ECSPI1_MOSI           0x140
++                       MX8MP_IOMUXC_ECSPI1_MISO__ECSPI1_MISO           0x140
++               >;
++       };
++
++       pinctrl_ecspi1_cs: ecspi1cs {
++               fsl,pins = <
++                       MX8MP_IOMUXC_ECSPI1_SS0__GPIO5_IO09                     0x140
+                >;
+        };
+```
+
+Step 3. Recompile the kernel and copy the new dtb file to the boot partition instead of the old one. <br>
+Step 4. Boot up the system and checking the device node is exist or not <br>
+
+    ls /dev/spidev1.0
+    
+
+## User-Space Utility instructions (Linux OS)
+
+Step 1. Install necessary packages
+
+        Ubuntu/Debian:
+        $ sudo apt install gpiod libgpiod-dev
+
+        Yocto:
+        Need add the line in machine conf file as following:
+        IMAGE_INSTALL_append = " libgpiod"
+
+Step 2. Prepare a 250x122 size picture what you want to showing, then make a image raw data based header file
+
+        Download the PNG to RAW converter base on python3, remember to install opencv package first
+        $ sudo apt install python3-opencv
+        $ wget https://raw.githubusercontent.com/open-EPD/user-space-examples/refs/heads/master/2.13/color/spi/png2epd.py
+
+        Then, rename your PNG file as test.png, and excute the python script
+        $ python3 png2epd.py
+
+        It will generate a output file: png_HEX.h, the copy the same folder witth pixpaper-213-c-test-imx8mp.c.
+        Note that this step can running on host PC side or target board, but png_HEX.h must be put into the folder with c file together before 
+        compiling.
+
+        Download a sample header file:
+        $ wget https://raw.githubusercontent.com/open-EPD/user-space-examples/refs/heads/master/2.13/color/spi/png_HEX.h
+
+
+Step 3. Please download the utility source code in the rootfs of CUBE-RK3588, then compile it and execute the compiled executable file.
+
+        PIXPAPER-213-C:
+        # wget https://raw.githubusercontent.com/open-EPD/user-space-examples/refs/heads/master/2.13/color/spi/pixpaper-213-c-test-imx8mp.c
+        # gcc -o epd_test pixpaper-213-c-test-imx8mp.c -lgpiod
+        # ./epd_test
+
+        Note that if your wired connection is different with chapter 1 "Hardware Preparison", especially DC# PIN, RST# PIN, and BUSY PIN,
+        please modify the specific macros definition of pixpaper-213-c-test-imx8mp.c:
+
+        #define EPD_GPIO_CHIP "gpiochip5"
+        #define EPD_DC_PIN 15
+        #define EPD_RST_PIN 13
+        #define EPD_BUSY_PIN 11
+
+
+Expection results: <br>
+final image is some procgress bar with black background <br>
+![ezgif-4-6446ab9a4e](https://github.com/user-attachments/assets/224ee0a3-6eda-4a69-8ffe-28d9f717d7a8)
+
+
+## Contributors
+
+Thanks goes to these wonderful people from open source community:
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lc-wang"><img src="https://avatars.githubusercontent.com/u/125327848?v=4" width="100px;" alt="LC Wang"/><br /><sub><b>LC Wang</b></sub></a><br /><a href="https://github.com/wigcheng/open-epd/commits?author=lc-wang" title="Code">💻</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+---
